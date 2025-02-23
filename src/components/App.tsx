@@ -14,6 +14,8 @@ interface Node {
     isStart: boolean;
     isEnd: boolean;
     isWall: boolean;
+    isVisited: boolean;
+    isPath: boolean;
 
     // Pathfinding properties
     distance: number;     // How far from start (actual distance traveled)
