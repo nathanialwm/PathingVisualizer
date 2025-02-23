@@ -8,6 +8,14 @@ const algorithmExplanations: { [key: string]: string } = {
   'DFS': "Depth-First Search picks one direction and goes as far as it can before backtracking. Fast but ignores both terrain costs and path length."
 };
 
+// Real-life use cases
+const algorithmUseCases: { [key: string]: string } = {
+  'A*': "A* is used in GPS navigation systems, video games for pathfinding, and robotics for efficient route planning.",
+  'Dijkstra': "Dijkstra's algorithm is used in network routing protocols, geographical mapping, and urban planning.",
+  'DFS': "Depth-First Search is used in maze solving, puzzle games, and for searching through file systems.",
+  'BFS': "Breadth-First Search is used in social networking applications, peer-to-peer networks, and web crawling.",
+};
+
 // Props for settings controls
 interface SettingsPanelProps {
   algorithm: string;
@@ -49,6 +57,12 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
         <div className="algorithm-explanation mt-2">
           <p className="text-sm text-gray-600 bg-gray-100 p-3 rounded">
             {algorithmExplanations[algorithm]}
+          </p>
+        </div>
+
+        <div className="algorithm-use-cases mt-2">
+          <p className="text-sm text-gray-600 bg-gray-100 p-3 rounded">
+            {algorithmUseCases[algorithm]}
           </p>
         </div>
       </div>
