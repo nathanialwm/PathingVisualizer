@@ -65,7 +65,7 @@ function sortNodesByDistance(unvisitedNodes: GridNode[]) {
     unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 }
 
-// Get valid neighbors (copied from A* but it works)
+// Get valid neighbors
 const getUnvisitedNeighbors = (node: GridNode, grid: GridNode[][]) => {
     const neighbors = [];
     const { row, col } = node;
@@ -76,7 +76,7 @@ const getUnvisitedNeighbors = (node: GridNode, grid: GridNode[][]) => {
     return neighbors.filter(neighbor => !neighbor.isWall && !neighbor.isVisited);
 };
 
-// Turn the grid into a list (there's probably a better way to do this)
+// Turn the grid into a list 
 const getAllNodes = (grid: GridNode[][]) => {
     let nodes = [];
     for (const row of grid) {
