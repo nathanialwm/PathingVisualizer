@@ -1,15 +1,14 @@
 import { GridNode } from './GridNode';
 import { animateVisitedNodes } from '../utils/animation.ts';
 
-// DFS - basically the same as BFS but with a stack instead of queue
-// Had to watch a YouTube video to understand the difference lol
+// DFS - checks all of one direction before backtracking and checking another direction
 const dfs = (
     grid: GridNode[][],
     startNode: GridNode,
     endNode: GridNode,
     setGrid: React.Dispatch<React.SetStateAction<GridNode[][]>>,
     setAnimation: React.Dispatch<React.SetStateAction<boolean>>,
-    _heuristicWeight: number,  // Not using this but need it to match other algorithms
+    _heuristicWeight: number,  // not used
     setAlgorithmTime: React.Dispatch<React.SetStateAction<number>>,
     setPathCost: React.Dispatch<React.SetStateAction<number>>
 ) => {
