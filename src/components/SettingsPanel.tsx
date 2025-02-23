@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Add this near the top of the file
+// algorithm explanations
 const algorithmExplanations: { [key: string]: string } = {
   'A*': "A* is like a smart GPS - it uses a 'heuristic' (an educated guess) to find the shortest path. It considers terrain costs and estimates distance to the end.",
   'Dijkstra': "Dijkstra's algorithm finds the shortest path by considering terrain costs. It spreads out from the start, always choosing the lowest-cost path first.",
