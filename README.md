@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Pathfinding Algorithm Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a 24-hour hackathon entry. A web project that creates a 2D drawable grid and uses the option of 4 different pathfinding algorithms to animate how the algorithm "thinks"
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Tech Stack](#tech-stack)
+- [Preview](#preview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contact](#contact)
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+ - **React**: Web Framework
+ - **Node**: JS Environment
+ - **Vite**: Build Tool
+ -  **Typescript**: Type safe scripting language, logic and UI is built with this
+ -  **Tailwind.css**: CSS with utility classes
 
-- Configure the top-level `parserOptions` property like this:
+## Preview
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+<img alt="Drawn Grid Preview" src="src/imgs/alg1.png" width=450>      <img alt="After Animation Preview" src="src/imgs/alg2.png" width=450>
+
+The drawing and animation of the grid is all based on this interface which is created in each grid cell
+```typescript
+export interface GridNode {
+    row: number;
+    col: number;
+    isStart: boolean;
+    isEnd: boolean;
+    isWall: boolean;
+    distance: number;     // How far from start (actual distance traveled)
+    heuristic: number;    // Estimated distance to end (for A* algorithm)
+    totalDistance: number; // distance + heuristic
+    previousNode: GridNode | null;  // Which node did we come from? (for backtracking)
+    isVisited: boolean;   // Has this node been visited?
+    isPath: boolean;      // Is this node part of the final path?
+    terrain: 'normal' | 'water' | 'mountain' | 'wall';  // What type of terrain?
+    weight: number;       // How "costly" to move through this cell
+} 
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Clone Repository
+```bash
+cd desired directory
 ```
+
+```bash
+git clone https://github.com/nathanialwm/PathingVisualizer.git
+```
+
+Install dependencies
+```bash
+npm install
+```
+
+## Usage
+
+```bash
+npm run dev
+```
+
+This will provide a webpage through localhost
+
+## License
+
+Unlicensed
+
+## Contact
+
+Nathanial Martin @ [Linkedin](https://www.linkedin.com/in/nathanialm/)
